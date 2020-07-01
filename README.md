@@ -3,7 +3,7 @@ Capstone Project For PDX Code-Guild Full Stack Course
 
 ## project overview
 
-A Directory of Black Owned Businesses built with Django
+A Directory of Black Owned Businesses built with Django.
 
 ## Functionality
 
