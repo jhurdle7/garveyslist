@@ -19,6 +19,9 @@ A Directory of Black Owned Businesses built with Django.
 * city (charfield)
 * street address
 * rating (integerfield)
+* review(manytomany)
+* user(manytoone)
+
 
 ## Schedule
 - [ ] Week One
@@ -33,3 +36,13 @@ A Directory of Black Owned Businesses built with Django.
 
 - [ ] Week Three
 * have a functional directory 
+
+
+#get models working inlcuding connections (type, user)
+custom user model(reviews, ratings)
+User sign up..log in 
+user add business to profile (one to many)
+user set business type (manytomany)
+
+
+review(manytomany)
