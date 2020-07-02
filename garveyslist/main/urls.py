@@ -6,3 +6,7 @@ app_name= 'main'
 urlpatterns = [
   path('index/', views.index, name='index')
 ]
+
+
+
+static_URL = 'templates/main/static'
