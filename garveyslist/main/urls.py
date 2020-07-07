@@ -9,4 +9,3 @@ urlpatterns = [
 
 
 
-static_URL = 'templates/main/static'

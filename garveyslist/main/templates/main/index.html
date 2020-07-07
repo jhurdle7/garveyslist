@@ -39,8 +39,14 @@
             </form>
         </div>
     </nav>
-
-    <h1>{{message}}</h1>
+    <div>
+        <h1>{{title}}</h1>
+        <ul>
+            {% for type in businesstypes %}
+            <li> {{type.name}}</li>
+            {% endfor %}
+        </ul>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
