@@ -10,6 +10,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+
     <title>Welcome to GarveysList</title>
 </head>
 
@@ -26,9 +28,10 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">Who is Marcus Garvey</a>
-                </li>
+
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">An Economic Blueprint For Black Excellence</a>
@@ -40,20 +43,19 @@
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Copyright 2020</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0"> action="/savetodo" method="post"> {% csrf_token %}
-                <input class="form-control mr-sm-2" type="search" placeholder="find a business" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
+            <form action="{% url 'main:index' %}" method="post">
+                {% csrf_token %}
+                <input type="text" placeholder="find business" name="search" value='{{search}}' /><button class="btn btn-primary" type="submit">"search"</button>
             </form>
         </div>
     </nav>
-    <div>
+    <main>
         <h1>{{title}}</h1>
-        <ul>
+        <div id=business-types-list>
             {% for type in businesstypes %}
-            <li> {{type.name}}</li>
-            {% endfor %}
-        </ul>
-    </div>
+            <a class="business-type-link" href="{%url 'main:detail' type.id %}">{{type.name}} </a> {% endfor %}
+        </div>
+    </main>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

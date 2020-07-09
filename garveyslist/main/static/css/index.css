@@ -1,3 +1,18 @@
-body {
-    background-image: url("flag.png")
+main {
+    background-image: url("../main/flag.png");
+    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 75vh;
+}
+
+.business-type-link {
+    color: green;
+    background-color: rgba(255, 255, 255, .33);
+    margin-right: 10px;
+}
+
+#business-types-list {
+    /* opacity: 0.33; */
+    display: flex;
 }

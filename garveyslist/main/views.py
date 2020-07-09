@@ -21,8 +21,27 @@ from .models import Business, BusinessType
 
 def index(request):
     businesstypes = BusinessType.objects.all()
+
+    page = request.GET.get('page', 1)
+    search = ''
+    if request.method == 'POST':
+        search = request.POST['search']
+        business = Business.objects.get(Q(businesstypes__icontains=search)
+        | Q(name__icontains=search))
+    
+     
     context = {'title': 'Garveys List',
-    'businesstypes': businesstypes
+    'businesstypes': businesstypes,
+    'search' : search
 
     }
     return render(request, 'main/index.html', context)
+
+
+
+def detail(request, business_type):
+    businesses = Business.objects.filter(types=business_type)
+
+    
+    return render(request, 'main/detail.html', {'businesses': businesses})
+
