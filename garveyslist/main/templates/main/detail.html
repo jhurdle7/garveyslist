@@ -16,40 +16,60 @@
 </head>
 
 <body>
-    <a href="{% url 'main:index' %}" class="btn btn-primary">back</a>
-    <div class="center">
-        <table>
-            <tr>
-                {% for business in businesses %}
-                <td><b>Business</b></td>
-                <td>{{business.name}}</td>
-            </tr>
-            <tr>
-                <td><b>state</b></td>
-                <td>{{business.state}}</td>
-            </tr>
-            <tr>
-                <td><b>city</b></td>
-                <td>{{business.city}}</td>
-            </tr>
-            <tr>
-                <td><b>street</b></td>
-                <td>{{business.street}}</td>
-            </tr>
-            <tr>
-                <td><b>phone</b></td>
-                <td>{{business.phone_number}}</td>
-            </tr>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+        <a class="navbar-brand" href="index.html"><img src="{% static 'main/images.jpeg' %} " width="120"></a>
 
-            {% endfor %}
-            <tr>
-                {% for type in business.types.all %}
-                <td><b>type</b></td>
-                <td>{{type}}</td>
-                {% endfor %}
-            </tr>
-        </table>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Log in</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Resources</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Claim Your Business</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Copyright 2020</a>
+                </li>
+            </ul>
+            <form action="{% url 'main:index' %}" method="post">
+                {% csrf_token %}
+                <input type="text" placeholder="search..." name="search" value='{{search}}' /><button class="btn btn-primary" type="submit">search</button>
+            </form>
+        </div>
+    </nav>
+
+    <a href="{% url 'main:index' %}" class="btn btn-primary">back</a> {% for business in businesses %}
+    <div class="card mx-auto" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{business.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{business.state}} {{business.city}} {{business.street}} {{business.phone_number}}</h6>
+            <p class="card-text">{{business.comments}}</p>
+            <a href="https://www.{{business.website}}" class="card-link">{{business.website}}</a>
+
+        </div>
     </div>
+    {% endfor %}
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

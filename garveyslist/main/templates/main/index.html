@@ -30,14 +30,22 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Who is Marcus Garvey</a>
+                    <a class="nav-link" href="#">Log in</a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">An Economic Blueprint For Black Excellence</a>
+                    <a class="nav-link" href="#">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Black Wallstreet</a>
+                    <a class="nav-link" href="#">Resources</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Claim Your Business</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Copyright 2020</a>
@@ -45,7 +53,7 @@
             </ul>
             <form action="{% url 'main:index' %}" method="post">
                 {% csrf_token %}
-                <input type="text" placeholder="find business" name="search" value='{{search}}' /><button class="btn btn-primary" type="submit">"search"</button>
+                <input type="text" placeholder="search..." name="search" value='{{search}}' /><button class="btn btn-primary" type="submit">search</button>
             </form>
         </div>
     </nav>
