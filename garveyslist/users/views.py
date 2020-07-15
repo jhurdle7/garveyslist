@@ -8,34 +8,31 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 @login_required
-    #def home(request):
-    #return render(request, 'index.html')
-
+  
 def user(request):
-    context = {
+    print(request.user.username)
+    return render(request, 'users/user.html')
 
-    }
-    return render(request, 'users/user.html', context)
 def login_page(request):
     if request.method == 'POST':
 
         username = request.POST['username']
         password =  request.POST['password']
 
-        user = authenticate(request, username=username, password = password)
+        user = authenticate(request, username=username, password=password)
         if user is None: 
-            return reder(request, 'users/login.html', {'message': ' there is no User with that name or password'})
+            return render(request, 'users/login.html', {'message': ' there is no User with that name or password'})
             login(request, user)
-            #if 'next' in request.GET:
-                #return HttpResponseRedirect(request.GET['next'])
-            return HttpResponseRedirect(reverse('main:index'))
+        if 'next' in request.GET:
+            return HttpResponseRedirect(request.GET['next'])
+        return HttpResponseRedirect(reverse('users:login'))
 
-        return render(request, 'users/login.html')
+    return render(request, 'users/login.html')
 
 def register_page(request):
     if request.method == 'POST':
 
-        username - request.POST['username']
+        username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
         retype_password = request.POST['retype_password']
@@ -44,11 +41,11 @@ def register_page(request):
             return render(request, 'users/register.html', {'message:': 'passwords not match'})
         if User.objects.filter(username=username).exist():
             return render(request, 'users/register.html', {'message':' a user with that username already exist'})
-        user - User.objects.create_user(username, email, passowrd)
+        user = User.objects.create_user(username, email, password)
         login(request, user)
         return render(request, user)
 
-        return HttpResponseRedirect(reverse('users:home'))
+        return HttpResponseRedirect(reverse('users:users'))
         
     return render(request, 'users/register.html')
 
