@@ -2,13 +2,20 @@ from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+#from django.apps import main
 
 # Create your views here.
 
 @login_required
-def home(request):
-    return render(request, 'users/home.html')
+    #def home(request):
+    #return render(request, 'index.html')
 
+def user(request):
+    context = {
+
+    }
+    return render(request, 'users/user.html', context)
 def login_page(request):
     if request.method == 'POST':
 
@@ -19,9 +26,9 @@ def login_page(request):
         if user is None: 
             return reder(request, 'users/login.html', {'message': ' there is no User with that name or password'})
             login(request, user)
-            if 'next' in request.GET:
-                return HttpResponseRedirect(request.GET['next'])
-            return HttpResponseRedirect(reverse('users:home'))
+            #if 'next' in request.GET:
+                #return HttpResponseRedirect(request.GET['next'])
+            return HttpResponseRedirect(reverse('main:index'))
 
         return render(request, 'users/login.html')
 
