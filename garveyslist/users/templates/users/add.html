@@ -17,7 +17,7 @@
         <div class="card-body">
             <div class="col-8">
                 <h1 class="">Add Business</h1>
-                <a href="{% url 'main:index' %}"></a>
+                <a href="{% url 'users:user' %}"></a>
                 <form action="/add/" method="post">
                     {% csrf_token %}
                     {% for field in form%}

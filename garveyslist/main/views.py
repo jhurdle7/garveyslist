@@ -46,19 +46,5 @@ def detail(request, business_type):
     
     return render(request, 'main/detail.html', {'businesses': businesses})
 
-def addbusiness(request):
-    businessform = BusinessForm()
-    message = ''
-    if request.method == 'POST':
-        form = BusinessForm(request.POST)
-        if form.is_valid():
-            form.save()
-            form= BusinessForm()
-        else:
-            message= 'form is not valid'
-    else:
-        form = BusinessForm()
-        
-        
-    return render(request, 'main/add.html', {'form': businessform, 'message:': message})
+
 
