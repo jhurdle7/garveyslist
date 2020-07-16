@@ -34,14 +34,14 @@
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href={% url 'users:register_page' %}>Sign Up</a>
+                    <a class="nav-link" href="{% url 'users:register_page' %}">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href={% url 'users:login_page' %}>Resources</a>
+                    <a class="nav-link" href="{% url 'users:login_page' %}">Resources</a>
                 </li>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'users:add' %}">add business</a>
+                    <a class="nav-link" href="{% url 'main:add' %}">add business</a>
                 </li>
                 </li>
                 <li class="nav-item">
@@ -60,8 +60,9 @@
     <main>
         <h1>{{title}}</h1>
 
-        <h1>Garveys List</h1>
+        <h1>Welcome Home</h1>
         <h3>{{user.username}}</h3>
+
         <a href="{%url 'users:logout_user' %}">logout</a>
         <div class="dropdown">
 
@@ -72,7 +73,9 @@
                 {% for type in businesstypes %}
                 <a class="business-type-link" href="{%url 'main:detail' type.id %}">{{type.name}}</a> {% endfor %}
 
+
             </div>
+
         </div>
 
     </main>

@@ -5,7 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.utils import timezone
 from main.models import Business, BusinessType
-from main.forms import BusinessForm
+
+
 
 
 
@@ -64,19 +65,3 @@ def logout_user(request):
     return HttpResponseRedirect(reverse('users:login_page'))
 
 
-@login_required
-def addbusiness(request):
-    businessform = BusinessForm()
-    message = ''
-    if request.method == 'POST':
-        form = BusinessForm(request.POST)
-        if form.is_valid():
-            form.save()
-            form= BusinessForm()
-        else:
-            message= 'form is not valid'
-    else:
-        form = BusinessForm()
-        
-        
-    return render(request, 'users/add.html', {'form': businessform, 'message:': message})
