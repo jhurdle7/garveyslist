@@ -1,5 +1,5 @@
 main {
-    background-image: url("../main/flag.png");
+    background-image: url("/static/main/flag.png");
     background-size: cover;
     background-size: contain;
     background-repeat: no-repeat;
@@ -15,4 +15,13 @@ main {
 #business-types-list {
     /* opacity: 0.33; */
     display: flex;
+}
+
+.card {
+    color: green;
+    background-color: green;
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
 }
