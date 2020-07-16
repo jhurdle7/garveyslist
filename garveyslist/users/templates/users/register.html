@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
+{% extends 'base.html' %}
+{% block content %}
 <body>
     <h1>register</h1>
     {% if message %}
@@ -23,4 +16,4 @@
     <div>Already have an account> <a href="{% url 'users:login_page' %}">login</a></div>
 </body>
 
-</html>
+{% endblock %} 

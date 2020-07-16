@@ -5,6 +5,9 @@ from .models import Business, BusinessType
 from django.contrib.auth.decorators import login_required
 
 from .forms import BusinessForm
+from django.db.models import Q
+
+
 
 
 
@@ -41,10 +44,14 @@ def index(request):
 
 
 def detail(request, business_type):
+    search = ''
     businesses = Business.objects.filter(types=business_type)
+    businesstypes = BusinessType.objects.all()
+     
+    
 
     
-    return render(request, 'main/detail.html', {'businesses': businesses})
+    return render(request, 'main/detail.html', {'businesses': businesses, 'businesstypes': businesstypes})
 
 
 
