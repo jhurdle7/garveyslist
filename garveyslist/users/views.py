@@ -15,7 +15,6 @@ from main.models import Business, BusinessType
 # Create your views here.
 
 @login_required
-  
 def user(request):
     print(request.user.username)
     return render(request, 'users/user.html')
@@ -33,9 +32,6 @@ def login_page(request):
         password =  request.POST['password']
 
         user = authenticate(request, username=username, password=password)
-        print("YOOOOOOO ITTS RIGHT HERE" *10)
-        print(user)
-        print("YOOOOOOO ITTS RIGHT HERE" *10)
         if user is None: 
             return render(request, 'users/login.html', {'message': ' there is no User with that name or password'})
         login(request, user)
@@ -67,6 +63,6 @@ def register_page(request):
 
 def logout_user(request):
     logout(request)
-    return HttpResponseRedirect(reverse('users:login_page'))
+    return HttpResponseRedirect(reverse('main:index'))
 
 

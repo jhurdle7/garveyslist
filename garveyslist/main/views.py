@@ -58,13 +58,14 @@ def detail(request, business_type):
 
 @login_required
 def addbusiness(request):
+    print(request.user)
     businessform = BusinessForm()
     message = ''
     if request.method == 'POST':
         form = BusinessForm(request.POST)
         if form.is_valid():
             form.save()
-            form= BusinessForm()
+            form = BusinessForm()
         else:
             message= 'form is not valid'
     else:

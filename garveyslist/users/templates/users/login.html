@@ -3,8 +3,8 @@
 {% block content %}
  
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+<div class="card align-self-center" style="width: 18rem; margin: 0 auto;" id="login-card">
+  <img src="{% static 'main/blackstar.jpeg' %}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">login</h5>
    {% if message %}
@@ -16,7 +16,7 @@
         <input type="password" name="password" placeholder="password" required/>
         <button type="submit">login</button>
     </form>
-    <div>Don't have an account? <a href="{% url 'users:register_page' %}">register</a></div>
+    <div>Don't have an account? <a href="{% url 'users:register_page' %}">Join the Family</a></div>
 
 
   </div>

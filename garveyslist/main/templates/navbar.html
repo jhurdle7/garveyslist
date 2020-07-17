@@ -19,19 +19,26 @@
                     <a class="nav-link" href={% url 'users:register_page' %}>Sign-Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href={% url 'main:index' %}>Log-out</a>
+                    <a class="nav-link" href={% url 'users:logout_user' %}>Log-out</a>
                 </li>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'main:add' %}">Add Business</a>
                 </li>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                <li class="nav-item" "dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                What are you looking for?
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% for type in businesstypes %}
+                <a class="business-type-link" href="{%url 'main:detail' type.id %}">{{type.name}}</a> {% endfor %}
+
+                    
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"> &copy; 2020 </a>
                 </li>
+                
           
                 {% csrf_token %}
                
@@ -40,19 +47,4 @@
         </div>
     </nav>
 
-    <main>
-        <h1></h1>
-
-        <div class="dropdown">
-
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                What are you looking for?
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {% for type in businesstypes %}
-                <a class="business-type-link" href="{%url 'main:detail' type.id %}">{{type.name}}</a> {% endfor %}
-
-            </div>
-        </div>
-
-    </main>
+   

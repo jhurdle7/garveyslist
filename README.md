@@ -14,13 +14,14 @@ A Directory of Black Owned Businesses built with Django.
 ## Data Models
 
 * business name (charfield)
-* type of business (foreignkey)
+* type of business (manytomany)
 * state (charfield)
 * city (charfield)
 * street address
 * rating (integerfield)
-* review(manytomany)
-* user(manytoone)
+* comments (charfield)
+* onwer (charfield)
+* phone number (integerfield)
 
 
 ## Schedule
@@ -28,21 +29,16 @@ A Directory of Black Owned Businesses built with Django.
 * collect Data
 * Create Django Project
 * create models
-* create index view
-* 
+* create main views
+
 - [ ] Week Two
-* create user input
-* create index view
+* get models working including connections
+* start on user management
+* allow user to sign up, login and save business to directory
 
 - [ ] Week Three
 * have a functional directory 
+* have user input 
+* start styling
+* collect more data
 
-
-#get models working inlcuding connections (type, user)
-custom user model(reviews, ratings)
-User sign up..log in 
-user add business to profile (one to many)
-user set business type (manytomany)
-
-
-review(manytomany)

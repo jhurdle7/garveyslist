@@ -23,3 +23,7 @@ body {
     width: 100%;
     text-align: center;
 }
+
+#login-card {
+    margin: 0 auto !important;
+}
