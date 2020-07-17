@@ -3,7 +3,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><img src="{% static 'main/images.jpeg' %} " width="120">{{title}}&trade;</a>
+        <a class="navbar-brand" href="{% url 'main:index' %}">{{title}}<img src="{% static 'main/images.jpeg' %} " width="120">&trade;</a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">

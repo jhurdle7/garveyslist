@@ -59,6 +59,9 @@ def detail(request, business_type):
 @login_required
 def addbusiness(request):
     print(request.user)
+    search = ''
+    businesstypes = BusinessType.objects.all()
+     
     businessform = BusinessForm()
     message = ''
     if request.method == 'POST':
@@ -72,7 +75,7 @@ def addbusiness(request):
         form = BusinessForm()
         
         
-    return render(request, 'main/add.html', {'form': businessform, 'message:': message})
+    return render(request, 'main/add.html', {'form': businessform, 'message:': message, 'businesstypes': businesstypes})
 
 
 

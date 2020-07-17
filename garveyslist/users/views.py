@@ -42,6 +42,9 @@ def login_page(request):
     return render(request, 'users/login.html',{'businesstypes': businesstypes})
 
 def register_page(request):
+    search = ''
+    #businesses = Business.objects.filter(types=business_type)
+    businesstypes = BusinessType.objects.all()
     if request.method == 'POST':
 
         username = request.POST['username']
@@ -57,7 +60,7 @@ def register_page(request):
         login(request, user)
         return render(request, 'users/user.html')
 
-        return HttpResponseRedirect(reverse('users:users'))
+        return HttpResponseRedirect(reverse('users:users'), {'businesstypes': businesstypes})
         
     return render(request, 'users/register.html')
 

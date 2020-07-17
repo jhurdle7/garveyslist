@@ -1,28 +1,23 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
 
-{% extends 'base.html' %} 
-{% load static %}
-{% block content %}
+<div class="card text-center">
+  <div class="card-header">
+   Hey {{user.username}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Welcome</h5>
+    <p class="card-text">
+      You can add your business to Garvey's List 
+    </p>
+    <a href="{%url 'main:add' %}" class="btn btn-primary">Add A new business</a>
+  </div>
+  <div class="card-footer text-muted">
+  <a href="{%url 'users:logout_user' %}">logout</a>
     
-
-        <h1>{{title}}</h1>
-
-        <h1>Welcome Home</h1>
-        <h3>{{user.username}}</h3>
-
-        <a href="{%url 'users:logout_user' %}">logout</a>
-        <div class="dropdown">
-
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                What are you looking for?
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {% for type in businesstypes %}
-                <a class="business-type-link" href="{%url 'main:detail' type.id %}">{{type.name}}</a> {% endfor %}
+  </div>
+</div>
 
 
-            </div>
-
-        </div>
-
+ 
 
 {% endblock %}
